@@ -57,21 +57,21 @@
                     <label class="light-text">Mortgage Type</label>
 
                     <div class="radio-inputs">
-                        <input id="interest-only" class="mortgage-type" type="radio"
+                        <input id="interest-only1" class="mortgage-type" type="radio"
                         name="mortgage-type" value="repayment" required>
                         <label for="repayment">Repayment</label>
                     </div>
 
                     <div class="radio-inputs">
-                        <input id="interest-only" class="mortgage-type" type="radio"
+                        <input id="interest-only2" class="mortgage-type" type="radio"
                         name="mortgage-type" value="interest-only" required>
-                        <label for="interest-onl">Interest only</label>
+                        <label for="interest-only">Interest only</label>
                     </div>
                     <p class="form-alert" id="type-alert">This field is required</p>
                 </div>
 
                 <div class="form-item">
-                    <button id="calculator-btn" class="calculator-btn" type="button">
+                    <button onclick="mortageCalculator()" id="calculator-btn" class="calculator-btn" type="button">
                         <div class="calculator-icon">
                             <img src="C:\Users\MY LAPTOP\Repayment Calc\download.png" alt="calculator-icon">
                             Calculate Repayments

@@ -1,52 +1,34 @@
-const defaultText = document.getElementById("default-text")
-const calculatorcontainer = document.getElementById("calculator-container")
+let mortgageAmount = document.getElementById("mortgage-amount") 
+let mortgageTerm = document.getElementById("mortgage-term") 
+let interestRate = document.getElementById("interest-rate") 
+let interestOnly1 = document.getElementById("interest-only1")
+let interestOnly2 = document.getElementById("interest-only2")
+let amountAlert = document.getElementById("amount-alert")
+let typeAlert = document.getElementById("type-alert")
 
-document.querySelectorAll(".mortgage-type").forEach(input => {
-    input.addEventLIstener('change', () => {
-        document.querySelectorAll('.radio-inputs').forEach[div => {
-            div.classlist.remove('selected')
-        }]
+function mortageCalculator() {
+    let mortgageType = interestOnly1.checked ? interestOnly1.value : interestOnly2.value
+    const object = {
+        mortgage_type:mortgageType, 
+        mortgage_amount:mortgageAmount.value,
+        mortgage_Term:mortgageTerm.value,
+        interest_rate:interestRate.value
+    }
 
-        if (this.checked) {
-            this.parentElement.classList.add('selected')
-        }
-    })
-})
-
-document.getElementById("calculator-btn").addEventListener("click", () => {
-    const amount = perseFloat(document.getElementById("mortgage-amount").value)
-    const term = perseFloat(document.getElementById("mortgage-term").value)
-    const rate = perseFloat(document.getElementById("mortgage-rate").value)
-    const mortgageType = document.querySelector("input[name='mortgage-type]:checked")
-})
-
-let isValid = true
-
-document.querySelectorAll('.form-flex').forEach( el => {
-    el.classlist.remove['error']
-})
-
-if(isNaN(amount) || amount <= o) {
-    document.getElementById('amount-alert').style.display = 'block'
-    document.getElementById('mortgage-amount-main').classList.add('error')
-    isValid = false
-} else {
-    document.getElementById('amount-alert').style.display = 'none'
+    const CHECKED = !interestOnly1.checked || !interestOnly2.checked
+    
+    if(CHECKED) {
+        typeAlert.classList.remove('form-alert')
+        typeAlert.classList.add('form-alert-show')
+    } else {
+        typeAlert.classList.remove('form-alert-show')
+        typeAlert.classList.add('form-alert')
+    }
+    if(CHECKED) {
+        amountAlert.classList.remove('form-alert')
+        amountAlert.classList.add('form-alert-show')
+    } else {
+        amountAlert.classList.remove('form-alert-show')
+        amountAlert.classList.add('form-alert')
+    }
 }
-
-if(isNaN(term) || term <= 0) {
-    document.getElementById('term-alert').style.display = 'block'
-    document.getElementById('mortgage-term-main').classList.add('error')
-    isValid = false
-} else {
-    document.getElementById('term-alert').style.display = 'none'
-} 
-
-if(isNaN(rate) || rate <= 0) {
-    document.getElementById('rate-alert').style.display = 'block'
-    document.getElementById('mortgage-rate-main').classList.add('error')
-    isValid = false
-} else {
-    document.getElementById('rate-alert').style.display = 'none'
-}
-
