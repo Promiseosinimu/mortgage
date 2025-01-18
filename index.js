@@ -1,6 +1,6 @@
-let mortgageAmount = document.getElementById("mortgage-amount") 
-let mortgageTerm = document.getElementById("mortgage-term") 
-let interestRate = document.getElementById("interest-rate") 
+let mortgageAmountInputField = document.getElementById("mortgage-amount")
+let mortgageTermInputField = document.getElementById("mortgage-term")
+let interestRateInputField = document.getElementById("interest-rate")
 let interestOnly1 = document.getElementById("interest-only1")
 let interestOnly2 = document.getElementById("interest-only2")
 let amountAlert = document.getElementById("amount-alert")
@@ -17,15 +17,32 @@ let parent4 = document.getElementById("mortgage-term-main")
 let parent5 = document.getElementById("form-symbol3")
 let parent6 = document.getElementById("interest-rate-main")
 
+const resultDiv = document.getElementById("result")
+
+function formatNumber(number) {
+    return number.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+// Integer ->
 
 function mortgageCalculator() {
-    let mortgageType = interestOnly1.checked ? interestOnly1.value : interestOnly2.value
-    const object = {
-        mortgage_type:mortgageType, 
-        mortgage_amount:mortgageAmount.value,
-        mortgage_Term:mortgageTerm.value,
-        interest_rate:interestRate.value
+    const mortgageAmount = parseFloat(mortgageAmountInputField.value);
+    const mortgageTerm = parseInt(mortgageTermInputField.value);
+    const annualInterestRate = parseFloat(interestRateInputField.value) / 100;
+    const monthlyInterestRate = annualInterestRate / 12;
+    const numberOfPayments = mortgageTerm * 12;
+
+    let monthlyPayment;
+
+    if (interestOnly1.checked) {
+        monthlyPayment = mortgageAmount * monthlyInterestRate;
+    } else {
+        monthlyPayment = mortgageAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
     }
+
+    console.log('Monthly Payment:', monthlyPayment.toFixed(2));
+
+    resultDiv.innerHTML = `$${formatNumber(monthlyPayment.toFixed(2))}`;
 
     const CHECKED = interestOnly1.checked || interestOnly2.checked
 
@@ -38,7 +55,7 @@ function mortgageCalculator() {
         typeAlert.classList.add('form-alert-show')
     }
 
-    const mortgage__Amount = mortgageAmount.value <= 0
+    const mortgage__Amount = mortgageAmountInputField.value <= 0
     if(mortgage__Amount) {
         parent1.classList.remove('error-hide')
         parent1.classList.add('error-show')
@@ -51,15 +68,15 @@ function mortgageCalculator() {
 
 
     } else {
-        mortgageAmount.classList.remove('form-flex-error')
-        mortgageAmount.classList.add('form-flex-error')
+        mortgageAmountInputField.classList.remove('form-flex-error')
+        mortgageAmountInputField.classList.add('form-flex-error')
 
         amountAlert.classList.remove('form-alert')
         amountAlert.classList.add('form-alert')
 
     }
 
-    const mortgage__Term = mortgageTerm.value <= 0
+    const mortgage__Term = mortgageTermInputField.value <= 0
     if(mortgage__Term) {
         parent4.classList.remove('error-hide')
         parent4.classList.add('error-show')
@@ -74,7 +91,7 @@ function mortgageCalculator() {
         termAlert.classList.add('form-alert')
     }
 
-    const interest__Rate = interestRate.value <= 0
+    const interest__Rate = interestRateInputField.value <= 0
     if(interest__Rate) {
         parent6.classList.remove('error-hide')
         parent6.classList.add('error-show')
@@ -88,15 +105,13 @@ function mortgageCalculator() {
         rateAlert.classList.remove('form-alert')
         rateAlert.classList.add('form-alert')
     }
-  
-
 
 }
 
 function clearAll() {
-    mortgageAmount.value = ""
-    mortgageTerm.value = ""
-    interestRate.value = ""
+    mortgageAmountInputField.value = ""
+    mortgageTermInputField.value = ""
+    interestRateInputField.value = ""
 
     parent1.classList.remove('error-show')
     parent1.classList.add('error-hide')

@@ -25,7 +25,7 @@ img.svg {
 
 body {
     background-color: var(--slate-100);
-    max-height: 100%; 
+    max-height: 100%;
     font-family: sans-serif;
     padding-top: 6rem;
     display: flex;
@@ -83,7 +83,7 @@ input[type='radio']:checked {
 
 
 .radio-inputs > * {
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .radio-inputs:hover {
@@ -261,10 +261,6 @@ button {
     margin-bottom: 1rem;
 }
 
-.mortgage-calculator .right .calculator-container {
-    display: ;
-}
-
 .mortgage-calculator .right .calculator-container.show {
     display: block;
 }
@@ -343,9 +339,19 @@ button {
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    
+
 }
 
 .default-text {
     display: none;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
 }
