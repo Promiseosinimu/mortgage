@@ -7,6 +7,7 @@
 :root {
     --lime: hsl(61, 70%, 52%);
     --lime-light: hsl(61, 81%, 54%);
+    --lime-light2: hsl(61, 90%, 54%);
     --Red: hsl(4, 69%, 50%);
     --white: hsl(0, 0%, 100%);
     --slate-100: hsl(202, 86%, 94%);
@@ -14,7 +15,7 @@
     --slate-300: hsl(200, 26%, 54%);
     --slate-400: hsl(200, 24%, 40%);
     --slate-500: hsl(202, 55%, 16%);
-    --slate-600: #0d2635;
+    --slate-600: #02141f;
 }
 
 img.svg {
@@ -34,7 +35,7 @@ body {
 
 .mortgage-calculator {
     background-color: var(--white);
-    max-width: 1500px;
+    max-width: 1600px;
     display: flex;
     border-radius: 1.5rem;
     position: static;
@@ -46,7 +47,7 @@ body {
 
 .mortgage-calculator .left {
     color: var(--slate-500);
-    max-width: 400px;
+    max-width: 450px;
 }
 
 label {
@@ -58,7 +59,7 @@ label {
 input[type='number'] {
     cursor: pointer;
     width: 100%;
-    padding: .25rem .1rem;
+    padding: .25rem .5rem;
     font-weight: 500;
     border: 0;
     outline: 0;
@@ -71,7 +72,7 @@ input[type='radio']:checked {
 .radio-inputs {
     font-size: 18px;
     cursor: pointer;
-    padding: .6rem .8rem;
+    padding: .5rem .8rem;
     margin-bottom: .4rem;
     font-weight: 500;
     display: flex;
@@ -113,6 +114,13 @@ button {
     font-weight: 700
 }
 
+.form-symbol-error {
+    background-color: red;
+    color: white;
+    padding: .5rem .8rem;
+    font-weight: 700
+}
+
 .form-flex {
     cursor: pointer;
     display: flex;
@@ -127,10 +135,14 @@ button {
     margin-bottom: 1.2rem;
 }
 
-.form-flex-error {
-    background-color: var(--Red);
-    color: var(--white);
+.error-hide {
+    border: 1px solid var(--slate-300);
+
+}
+
+.error-show {
     border: 1px solid var(--Red);
+
 }
 
 .form-col {
@@ -236,6 +248,10 @@ button {
     text-align: center;
 }
 
+.mortgage-calculator .right .default-text-show {
+    display: none;
+}
+
 .mortgage-calculator .right .default-text-img {
     margin: auto;
     background-color: var(--slate-500);
@@ -246,7 +262,7 @@ button {
 }
 
 .mortgage-calculator .right .calculator-container {
-    display: none;
+    display: ;
 }
 
 .mortgage-calculator .right .calculator-container.show {
@@ -304,4 +320,32 @@ button {
         width: 100%;
         justify-content: center;
     }
+}
+.calculations {
+    background-color: #061620;
+    border-top: 3px solid var(--lime-light2);
+    border-radius: .3rem;
+    min-height: 100%;
+    height: 210px;
+    padding: 10px;
+    width: 100%;
+}
+
+.results {
+    width: 100%;
+    color: white;
+    border-bottom: 1px solid white;
+    padding: 1px;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    
+}
+
+.default-text {
+    display: none;
 }
