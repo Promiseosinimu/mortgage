@@ -17,7 +17,9 @@ let parent4 = document.getElementById("mortgage-term-main")
 let parent5 = document.getElementById("form-symbol3")
 let parent6 = document.getElementById("interest-rate-main")
 
-const resultDiv = document.getElementById("result")
+let resultDiv = document.getElementById("result")
+let defaultText = document.getElementById("default-text")
+let calculatorContainer = document.getElementById("calculator-container")
 
 function formatNumber(number) {
     return number.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -36,8 +38,10 @@ function mortgageCalculator() {
 
     if (interestOnly1.checked) {
         monthlyPayment = mortgageAmount * monthlyInterestRate;
+
     } else {
         monthlyPayment = mortgageAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+
     }
 
     console.log('Monthly Payment:', monthlyPayment.toFixed(2));
@@ -105,13 +109,29 @@ function mortgageCalculator() {
         rateAlert.classList.remove('form-alert')
         rateAlert.classList.add('form-alert')
     }
-
+    
+    const CHECKED2 = !interestOnly1.checked && !interestOnly2.checked
+    if(interest__Rate, CHECKED2, mortgage__Term, mortgage__Amount) {
+       defaultText.classList.remove('default-text-remove')
+       defaultText.classList.add('default-text')
+    
+       calculatorContainer.classList.remove('calculator-container.show')
+       calculatorContainer.classList.add('calculator-container')
+    } else {
+       defaultText.classList.remove('default-text')
+       defaultText.classList.add('default-text-remove')
+      
+       calculatorContainer.classList.remove('calculator-container')
+       calculatorContainer.classList.add('calculator-container.show')
+    }
 }
 
 function clearAll() {
     mortgageAmountInputField.value = ""
     mortgageTermInputField.value = ""
     interestRateInputField.value = ""
+    interestOnly1.checked = ""
+    interestOnly2.checked = ""
 
     parent1.classList.remove('error-show')
     parent1.classList.add('error-hide')
@@ -142,4 +162,12 @@ function clearAll() {
 
     typeAlert.classList.remove('form-alert-show')
     typeAlert.classList.add('form-alert')
+
+    defaultText.classList.remove('default-text-remove')
+    defaultText.classList.add('default-text')
+    
+    calculatorContainer.classList.remove('calculator-container.show')
+    calculatorContainer.classList.add('calculator-container')
+    
+
 }
