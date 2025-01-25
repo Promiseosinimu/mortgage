@@ -111,7 +111,7 @@ function mortgageCalculator() {
     }
     
     const CHECKED2 = !interestOnly1.checked && !interestOnly2.checked
-    if(interest__Rate, CHECKED2, mortgage__Term, mortgage__Amount) {
+    if(mortgage__Term || mortgage__Amount || interest__Rate || CHECKED2) {
        defaultText.classList.remove('default-text-remove')
        defaultText.classList.add('default-text')
     
@@ -124,8 +124,8 @@ function mortgageCalculator() {
        calculatorContainer.classList.remove('calculator-container')
        calculatorContainer.classList.add('calculator-container.show')
     }
-}
 
+}   
 function clearAll() {
     mortgageAmountInputField.value = ""
     mortgageTermInputField.value = ""
