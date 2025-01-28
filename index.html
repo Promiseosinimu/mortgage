@@ -9,11 +9,13 @@
         <div class="left">
             <div class="header">
                 <h1>Mortgage Calculator</h1>
-                <button onclick="clearAll()" id="clear-btn">Clear All</button>
+                <div class="clear-btn">
+                    <button onclick="clearAll()" id="clear-btn">Clear All</button>
+                </div>
             </div>
 
             <form id="mortgage-form">
-                <div class="form-item">
+                <div class="form-item1">
                     <label class="light-text"
                     for="mortgage-amount">Mortgage Amount</label>
                     <div class="form-flex error-hide" id="mortgage-amount-main">
@@ -27,7 +29,7 @@
 
                 <div class="form-item">
                     <div class="form-col">
-                        <div class="form-item">
+                        <div class="form-item2">
                             <label class="light-text" for="mortgage-term">Mortgage Term</label>
                             <div class="form-flex error-hide" id="mortgage-term-main">
                                 <input id="mortgage-term" type="number"
@@ -39,14 +41,16 @@
                         </div>
 
                         <div class="form-item">
-                            <label class="light-text" for="interest-rate">Interest Rate</label>
-                            <div class="form-flex error-hide" id="interest-rate-main">
-                                <input id="interest-rate" type="number" name="interest-rate"
-                                step="0.01" required>
-                                <p class="form-symbol" id="form-symbol3">%</p>
-                            </div>
+                            <div class="form-item3">
+                                <label class="light-text" for="interest-rate">Interest Rate</label>
+                                <div class="form-flex error-hide" id="interest-rate-main">
+                                    <input id="interest-rate" type="number" name="interest-rate"
+                                    step="0.01" required>
+                                    <p class="form-symbol" id="form-symbol3">%</p>
+                                </div>
 
-                            <p class="form-alert" id="rate-alert">This field is required</p>
+                                <p class="form-alert" id="rate-alert">This field is required</p>
+                            </div>
                         </div>
 
 
@@ -110,7 +114,7 @@
                                 
                             </div>
                             <p class="light-text3">Total you'll repay over the term</p>
-                            <span id="term-result" class="term-result"></span>
+                            <p id="term-result" class="term-result2"></p>
 
                     </div>
             </div>

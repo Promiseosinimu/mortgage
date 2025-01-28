@@ -17,6 +17,7 @@ let parent4 = document.getElementById("mortgage-term-main")
 let parent5 = document.getElementById("form-symbol3")
 let parent6 = document.getElementById("interest-rate-main")
 
+let totalResultDiv = document.getElementById("term-result")
 let resultDiv = document.getElementById("result")
 let defaultText = document.getElementById("default-text")
 let calculatorContainer = document.getElementById("calculator-container")
@@ -33,6 +34,7 @@ function mortgageCalculator() {
     const annualInterestRate = parseFloat(interestRateInputField.value) / 100;
     const monthlyInterestRate = annualInterestRate / 12;
     const numberOfPayments = mortgageTerm * 12;
+    
 
     let monthlyPayment;
 
